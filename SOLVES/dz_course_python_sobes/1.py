@@ -6,22 +6,29 @@
 которая формирует на основе списка строку. Полученная строка выводится в главной функции.
 Элементы строки (элементы таблицы умножения) должны разделяться табуляцией.
 """
-"""
-def table_mul(x,y):
+
+x = 3  # по горизонтали  1,2,3
+y = 5  # по вертикали 1,2,3,4,5
+
+
+def table_mul(width: int, height: int):
     result = []
-    for i in range(1,11):
-"""
+    count_y = 1
+    while count_y <= height:
+        count_tab = 1
+        for i in range(1, width + 1):
+            res = count_y * i
+            result.append(str(res))
+            if count_tab % 3 == 0:
+                # print(result)
+                s = ','.join(result)
+                print(s, end='\t')
+                result = []
+                count_tab = 0
+            count_tab += 1
+        count_y += 1
 
-############
 
-def print_directory_contents(sPath):
-    """
-    Функция принимает имя каталога и распечатывает его содержимое
-    в виде «путь и имя файла», а также любые другие
-    файлы во вложенных каталогах.
+table_mul(x, y)
 
-    Эта функция подобна os.walk. Использовать функцию os.walk
-    нельзя. Данная задача показывает ваше умение работать с
-    вложенными структурами.
-    """
-    # заполните далее
+# step = lambda lst: ''.join(lst)
